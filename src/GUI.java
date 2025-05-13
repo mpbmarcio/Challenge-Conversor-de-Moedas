@@ -105,12 +105,14 @@ public class GUI {
 
                 if (!tfValor.getText().equals("")) {
                     ta.append(dataFormatada + ": Processando dados, ajustando variáveis, verificando equações... " +
-                            "Respire fundo e aguarde, porque a resposta está a caminho!\n");
+                              "Respire fundo e aguarde, porque a resposta está a caminho!\n");
 
                     List<String> listaMoeda = new ArrayList<>();
                     modelo.setRowCount(0);
-
                     Object[] dados = null;
+
+                    ta.append(dataFormatada +": O valor de: " + tfValor.getText() + " em [" + cbMoeda.getSelectedItem() +
+                              "], gerou a tabela ao lado.\n");
 
                     for (TipoMoeda tp : TipoMoeda.values()) {
                         if (!cbMoeda.getSelectedItem().equals(tp)) {
@@ -177,7 +179,6 @@ public class GUI {
                 }
                 writer.append("\n");
             }
-
            System.out.println("Exportação concluída com sucesso! Verifique Log.txt.");
         } catch (IOException e) {
             System.out.println("Erro ao exportar tabela: " + e.getMessage());
